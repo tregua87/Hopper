@@ -13,7 +13,11 @@ RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y install build-essential wget curl cmake git unzip xxd protobuf-compiler libprotobuf-dev \
     && apt-get -y install llvm-dev libclang-dev clang \
+    && apt-get -y install zsh python3 python3-dev python3-setuptools python-is-python3 python3-venv python3-pip vim \
     && apt-get clean
+
+RUN pip3 install ipython
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # ENV RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
 # ENV RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
